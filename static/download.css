@@ -812,6 +812,10 @@ button:focus {
     display: none
 }
 
+.main .app-brief .icon img {
+    width: 60%;
+}
+
 @media only screen and (max-width: 768px) {
     .main>header {
         max-height:100%;
