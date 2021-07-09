@@ -1,275 +1,338 @@
-<html lang="zh-cn"><head>
-<meta charset="utf-8">
-<title>ONE竞彩</title>
-<meta name="description" content="ONE竞彩，uat测试专用">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
-<link href="static/download.css?_t=0.1" rel="stylesheet">
-<link href="static/swiper-3.3.1.min.css" rel="stylesheet">
-<link href="static/ab.css" rel="stylesheet">
-<style type="text/css">.wechat_tip,.wechat_tip>i{position:absolute;right:10px}.wechat_tip{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#3ab2a7;color:#fff;font-size:14px;font-weight:500;width:135px;height:60px;border-radius:10px;top:15px}.wechat_tip>i{top:-10px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid #3ab2a7}.mask img{max-width:100%;height:auto} @media only screen and (max-device-width:1024px){#actions{display:none}}@media only screen and (max-device-width:768px){#actions{display:block}}
-</style>
-<script src="https://hm.baidu.com/hm.js?7ddceca34e01a13d9d024f3bc2b4b232"></script><script src="static/zepto.min.js?_t=2020041616" type="text/javascript"></script>
-<script src="static/swiper.jquery.min.js?_t=2020041616" type="text/javascript"></script>
-<script type="text/javascript">
-function mobile_provision(){
-    document.getElementById('actions').innerHTML = '<p>正在安装，请按 Home 键在桌面查看</p><button onclick="location.href=\'/static/app/app.mobileprovision\'">立即信任</button>';
-}
+<html lang="zh-cn">
 
-function install_app(_link){
-        if(!/android/.test(navigator.userAgent.toLowerCase())){
-            document.getElementById('actions').innerHTML = '<button style="min-width:43px;width:43px;padding:12px 0;border-top-color:transparent;border-left-color:transparent" class="loading">&nbsp;</button>';
-            setTimeout("mobile_provision()", 6000);
+<head>
+  <meta charset="utf-8">
+  <title>C09竞彩</title>
+  <meta name="description" content="C09竞彩，prod测试专用">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <link href="static/download.css?_t=0.1" rel="stylesheet">
+  <link href="static/swiper-3.3.1.min.css" rel="stylesheet">
+  <link href="static/ab.css" rel="stylesheet">
+  <style type="text/css">
+    .wechat_tip,
+    .wechat_tip>i {
+      position: absolute;
+      right: 10px
     }
-        location.href = _link;
-}
-function install_ing(_link){
-        location.href = _link;
-        $(".text-bar")[0].innerHTML = "安装中";
-        $(".change").show();
-        $(".text-bar").attr("disabled", "true");
-        $(".top-bar").css("width", "0.1%");
-        timer = setTimeout(function() {
-                $(".top-bar").css("width", "0.1%").animate({
-                        width:"20%"
-                }, 1e3, function() {
-                        $("#mq1").hide();
-                        $(".device").show();
-                        var mySwiper = new Swiper(".swiper-container1", {
-                                nextButton:".next_btn",
-                                autoplay:3e3,
-                                autoplayStopOnLast:true
-                        });
-                        $(".top-bar").css("width", "20%").animate({
-                                width:"100%"
-                        }, 15e3, function() {
-                                $(".text-bar")[0].innerHTML = "立即信任";
-                                $(".text-bar").removeAttr("disabled");
-                                $(".text-bar").attr("href", "/static/app/app.mobileprovision");
-                        });
-                });
-        }, 1e3);
-}
-</script>
+
+    .wechat_tip {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      background: #3ab2a7;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      width: 135px;
+      height: 60px;
+      border-radius: 10px;
+      top: 15px
+    }
+
+    .wechat_tip>i {
+      top: -10px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 12px solid #3ab2a7
+    }
+
+    .mask img {
+      max-width: 100%;
+      height: auto
+    }
+
+    @media only screen and (max-device-width:1024px) {
+      #actions {
+        display: none
+      }
+    }
+
+    @media only screen and (max-device-width:768px) {
+      #actions {
+        display: block
+      }
+    }
+  </style>
+  <script src="https://hm.baidu.com/hm.js?7ddceca34e01a13d9d024f3bc2b4b232"></script>
+  <script src="static/zepto.min.js?_t=2020041616" type="text/javascript"></script>
+  <script src="static/swiper.jquery.min.js?_t=2020041616" type="text/javascript"></script>
+  <script type="text/javascript">
+    function mobile_provision() {
+      document.getElementById('actions').innerHTML = '<p>正在安装，请按 Home 键在桌面查看</p><button onclick="location.href=\'/static/app/app.mobileprovision\'">立即信任</button>';
+    }
+
+    function install_app(_link) {
+      if (!/android/.test(navigator.userAgent.toLowerCase())) {
+        document.getElementById('actions').innerHTML = '<button style="min-width:43px;width:43px;padding:12px 0;border-top-color:transparent;border-left-color:transparent" class="loading">&nbsp;</button>';
+        setTimeout("mobile_provision()", 6000);
+      }
+      location.href = _link;
+    }
+    function install_ing(_link) {
+      location.href = _link;
+      $(".text-bar")[0].innerHTML = "安装中";
+      $(".change").show();
+      $(".text-bar").attr("disabled", "true");
+      $(".top-bar").css("width", "0.1%");
+      timer = setTimeout(function () {
+        $(".top-bar").css("width", "0.1%").animate({
+          width: "20%"
+        }, 1e3, function () {
+          $("#mq1").hide();
+          $(".device").show();
+          var mySwiper = new Swiper(".swiper-container1", {
+            nextButton: ".next_btn",
+            autoplay: 3e3,
+            autoplayStopOnLast: true
+          });
+          $(".top-bar").css("width", "20%").animate({
+            width: "100%"
+          }, 15e3, function () {
+            $(".text-bar")[0].innerHTML = "立即信任";
+            $(".text-bar").removeAttr("disabled");
+            $(".text-bar").attr("href", "/static/app/app.mobileprovision");
+          });
+        });
+      }, 1e3);
+    }
+  </script>
 </head>
-<body><!-- class="passwd" -->
-<span class="pattern left"><img src="image/left.png"></span>
-<span class="pattern right"><img src="image/right.png"></span>
-<div class="out-container">
+
+<body>
+  <!-- class="passwd" -->
+  <span class="pattern left"><img src="image/left.png"></span>
+  <span class="pattern right"><img src="image/right.png"></span>
+  <div class="out-container">
     <div class="main">
-        <header>
+      <header>
         <div class="table-container">
-            <div class="cell-container">
-                <div class="app-brief">
-                    <span class="icon"><img src="image/qrcode1.png?_t=1586747407"></span>
-                    <br><br>
-                    <center><h3>扫描二维码或者点击下载按钮下载(uat)</h3></center>
-                    <div id="actions" class="actions ">
-                        <a href="itms-services://?action=download-manifest&url=https://github.com/ipatest111/ONE/raw/master/OneLottery-uat/manifest.plist">
-                            <img src="image/ios.png">
-                        </a>
-                    </div>
-                    <center><h5>更新时间：2021.07.09-17.00.21</h5></center>
-                </div>
+          <div class="cell-container">
+            <div class="app-brief">
+              <span class="icon"><img src="image/qrcode1.png?_t=1586747407"></span>
+              <br><br>
+              <center>
+                <h3>扫描二维码或者点击下载按钮下载(uat)</h3>
+              </center>
+              <div id="actions" class="actions ">
+                <a
+                  href="itms-services://?action=download-manifest&url=https://github.com/ipatest111/ONE/raw/master/C09Lottery/manifest.plist">
+                  <img src="image/ios.png">
+                </a>
+              </div>
+              <center>
+                <h5>更新时间：2021.07.09-17.00.21</h5>
+              </center>
             </div>
+          </div>
         </div>
-        </header>
+      </header>
     </div>
-</div>
-<div class="mask" style="display:none"></div>
+  </div>
+  <div class="mask" style="display:none"></div>
 
-<script>
+  <script>
 
 
 
- function textBecomeImg(text,fontsize,fontcolor){
-    var canvas = document.createElement('canvas');
-    //小于32字加1  小于60字加2  小于80字加4    小于100字加6
-    $buHeight = 0;
-    if(fontsize <= 32){ $buHeight = 1; }
-    else if(fontsize > 32 && fontsize <= 60 ){ $buHeight = 2;}
-    else if(fontsize > 60 && fontsize <= 80 ){ $buHeight = 4;}
-    else if(fontsize > 80 && fontsize <= 100 ){ $buHeight = 6;}
-    else if(fontsize > 100 ){ $buHeight = 10;}
-    //对于g j 等有时会有遮挡，这里增加一些高度
-    canvas.height=fontsize + $buHeight ;
-    var context = canvas.getContext('2d');
-    // 擦除(0,0)位置大小为200x200的矩形，擦除的意思是把该区域变为透明
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = fontcolor;
-    context.font=fontsize+"px Arial";
-    //top（顶部对齐） hanging（悬挂） middle（中间对齐） bottom（底部对齐） alphabetic是默认值
-    context.textBaseline = 'middle';
-    context.fillText(text,0,fontsize/2)
- 
-    //如果在这里直接设置宽度和高度会造成内容丢失 , 暂时未找到原因 , 可以用以下方案临时解决
-    //canvas.width = context.measureText(text).width;
- 
- 
-    //方案一：可以先复制内容  然后设置宽度 最后再黏贴
-    //方案二：创建新的canvas,把旧的canvas内容黏贴过去
-    //方案三： 上边设置完宽度后，再设置一遍文字
- 
-    //方案一： 这个经过测试有问题，字体变大后，显示不全,原因是canvas默认的宽度不够，
-    //如果一开始就给canvas一个很大的宽度的话，这个是可以的。
-    //var imgData = context.getImageData(0,0,canvas.width,canvas.height);  //这里先复制原来的canvas里的内容
-    //canvas.width = context.measureText(text).width;  //然后设置宽和高
-    //context.putImageData(imgData,0,0); //最后黏贴复制的内容
- 
-    //方案三：改变大小后，重新设置一次文字
-    canvas.width = context.measureText(text).width;
-    context.fillStyle = fontcolor;
-    context.font=fontsize+"px Arial";
-    context.textBaseline = 'middle';
-    context.fillText(text,0,fontsize/2)
- 
-    var dataUrl = canvas.toDataURL('image/png');//注意这里背景透明的话，需要使用png
-    return dataUrl;
-}
+    function textBecomeImg(text, fontsize, fontcolor) {
+      var canvas = document.createElement('canvas');
+      //小于32字加1  小于60字加2  小于80字加4    小于100字加6
+      $buHeight = 0;
+      if (fontsize <= 32) { $buHeight = 1; }
+      else if (fontsize > 32 && fontsize <= 60) { $buHeight = 2; }
+      else if (fontsize > 60 && fontsize <= 80) { $buHeight = 4; }
+      else if (fontsize > 80 && fontsize <= 100) { $buHeight = 6; }
+      else if (fontsize > 100) { $buHeight = 10; }
+      //对于g j 等有时会有遮挡，这里增加一些高度
+      canvas.height = fontsize + $buHeight;
+      var context = canvas.getContext('2d');
+      // 擦除(0,0)位置大小为200x200的矩形，擦除的意思是把该区域变为透明
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.fillStyle = fontcolor;
+      context.font = fontsize + "px Arial";
+      //top（顶部对齐） hanging（悬挂） middle（中间对齐） bottom（底部对齐） alphabetic是默认值
+      context.textBaseline = 'middle';
+      context.fillText(text, 0, fontsize / 2)
 
-/**
-*
-* Base64 encode / decode
-*
-* @author haitao.tu
-* @date  2010-04-26
-* @email tuhaitao@foxmail.com
-*
-*/
-function Base64() {
-   
-  // private property
-  _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-   
-  // public method for encoding
-  this.encode = function (input) {
-    var output = "";
-    var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-    var i = 0;
-    input = _utf8_encode(input);
-    while (i < input.length) {
-      chr1 = input.charCodeAt(i++);
-      chr2 = input.charCodeAt(i++);
-      chr3 = input.charCodeAt(i++);
-      enc1 = chr1 >> 2;
-      enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-      enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-      enc4 = chr3 & 63;
-      if (isNaN(chr2)) {
-        enc3 = enc4 = 64;
-      } else if (isNaN(chr3)) {
-        enc4 = 64;
-      }
-      output = output +
-      _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +
-      _keyStr.charAt(enc3) + _keyStr.charAt(enc4);
+      //如果在这里直接设置宽度和高度会造成内容丢失 , 暂时未找到原因 , 可以用以下方案临时解决
+      //canvas.width = context.measureText(text).width;
+
+
+      //方案一：可以先复制内容  然后设置宽度 最后再黏贴
+      //方案二：创建新的canvas,把旧的canvas内容黏贴过去
+      //方案三： 上边设置完宽度后，再设置一遍文字
+
+      //方案一： 这个经过测试有问题，字体变大后，显示不全,原因是canvas默认的宽度不够，
+      //如果一开始就给canvas一个很大的宽度的话，这个是可以的。
+      //var imgData = context.getImageData(0,0,canvas.width,canvas.height);  //这里先复制原来的canvas里的内容
+      //canvas.width = context.measureText(text).width;  //然后设置宽和高
+      //context.putImageData(imgData,0,0); //最后黏贴复制的内容
+
+      //方案三：改变大小后，重新设置一次文字
+      canvas.width = context.measureText(text).width;
+      context.fillStyle = fontcolor;
+      context.font = fontsize + "px Arial";
+      context.textBaseline = 'middle';
+      context.fillText(text, 0, fontsize / 2)
+
+      var dataUrl = canvas.toDataURL('image/png');//注意这里背景透明的话，需要使用png
+      return dataUrl;
     }
-    return output;
-  }
-   
-  // public method for decoding
-  this.decode = function (input) {
-    var output = "";
-    var chr1, chr2, chr3;
-    var enc1, enc2, enc3, enc4;
-    var i = 0;
-    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-    while (i < input.length) {
-      enc1 = _keyStr.indexOf(input.charAt(i++));
-      enc2 = _keyStr.indexOf(input.charAt(i++));
-      enc3 = _keyStr.indexOf(input.charAt(i++));
-      enc4 = _keyStr.indexOf(input.charAt(i++));
-      chr1 = (enc1 << 2) | (enc2 >> 4);
-      chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-      chr3 = ((enc3 & 3) << 6) | enc4;
-      output = output + String.fromCharCode(chr1);
-      if (enc3 != 64) {
-        output = output + String.fromCharCode(chr2);
+
+    /**
+    *
+    * Base64 encode / decode
+    *
+    * @author haitao.tu
+    * @date  2010-04-26
+    * @email tuhaitao@foxmail.com
+    *
+    */
+    function Base64() {
+
+      // private property
+      _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+      // public method for encoding
+      this.encode = function (input) {
+        var output = "";
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
+        input = _utf8_encode(input);
+        while (i < input.length) {
+          chr1 = input.charCodeAt(i++);
+          chr2 = input.charCodeAt(i++);
+          chr3 = input.charCodeAt(i++);
+          enc1 = chr1 >> 2;
+          enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+          enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+          enc4 = chr3 & 63;
+          if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+          } else if (isNaN(chr3)) {
+            enc4 = 64;
+          }
+          output = output +
+            _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +
+            _keyStr.charAt(enc3) + _keyStr.charAt(enc4);
+        }
+        return output;
       }
-      if (enc4 != 64) {
-        output = output + String.fromCharCode(chr3);
+
+      // public method for decoding
+      this.decode = function (input) {
+        var output = "";
+        var chr1, chr2, chr3;
+        var enc1, enc2, enc3, enc4;
+        var i = 0;
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+        while (i < input.length) {
+          enc1 = _keyStr.indexOf(input.charAt(i++));
+          enc2 = _keyStr.indexOf(input.charAt(i++));
+          enc3 = _keyStr.indexOf(input.charAt(i++));
+          enc4 = _keyStr.indexOf(input.charAt(i++));
+          chr1 = (enc1 << 2) | (enc2 >> 4);
+          chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+          chr3 = ((enc3 & 3) << 6) | enc4;
+          output = output + String.fromCharCode(chr1);
+          if (enc3 != 64) {
+            output = output + String.fromCharCode(chr2);
+          }
+          if (enc4 != 64) {
+            output = output + String.fromCharCode(chr3);
+          }
+        }
+        output = _utf8_decode(output);
+        return output;
+      }
+
+      // private method for UTF-8 encoding
+      _utf8_encode = function (string) {
+        string = string.replace(/\r\n/g, "\n");
+        var utftext = "";
+        for (var n = 0; n < string.length; n++) {
+          var c = string.charCodeAt(n);
+          if (c < 128) {
+            utftext += String.fromCharCode(c);
+          } else if ((c > 127) && (c < 2048)) {
+            utftext += String.fromCharCode((c >> 6) | 192);
+            utftext += String.fromCharCode((c & 63) | 128);
+          } else {
+            utftext += String.fromCharCode((c >> 12) | 224);
+            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+            utftext += String.fromCharCode((c & 63) | 128);
+          }
+
+        }
+        return utftext;
+      }
+
+      // private method for UTF-8 decoding
+      _utf8_decode = function (utftext) {
+        var string = "";
+        var i = 0;
+        var c = c1 = c2 = 0;
+        while (i < utftext.length) {
+          c = utftext.charCodeAt(i);
+          if (c < 128) {
+            string += String.fromCharCode(c);
+            i++;
+          } else if ((c > 191) && (c < 224)) {
+            c2 = utftext.charCodeAt(i + 1);
+            string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+            i += 2;
+          } else {
+            c2 = utftext.charCodeAt(i + 1);
+            c3 = utftext.charCodeAt(i + 2);
+            string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+            i += 3;
+          }
+        }
+        return string;
       }
     }
-    output = _utf8_decode(output);
-    return output;
-  }
-   
-  // private method for UTF-8 encoding
-  _utf8_encode = function (string) {
-    string = string.replace(/\r\n/g,"\n");
-    var utftext = "";
-    for (var n = 0; n < string.length; n++) {
-      var c = string.charCodeAt(n);
-      if (c < 128) {
-        utftext += String.fromCharCode(c);
-      } else if((c > 127) && (c < 2048)) {
-        utftext += String.fromCharCode((c >> 6) | 192);
-        utftext += String.fromCharCode((c & 63) | 128);
-      } else {
-        utftext += String.fromCharCode((c >> 12) | 224);
-        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-        utftext += String.fromCharCode((c & 63) | 128);
-      }
-   
-    }
-    return utftext;
-  }
-   
-  // private method for UTF-8 decoding
-  _utf8_decode = function (utftext) {
-    var string = "";
-    var i = 0;
-    var c = c1 = c2 = 0;
-    while ( i < utftext.length ) {
-      c = utftext.charCodeAt(i);
-      if (c < 128) {
-        string += String.fromCharCode(c);
-        i++;
-      } else if((c > 191) && (c < 224)) {
-        c2 = utftext.charCodeAt(i+1);
-        string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-        i += 2;
-      } else {
-        c2 = utftext.charCodeAt(i+1);
-        c3 = utftext.charCodeAt(i+2);
-        string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-        i += 3;
-      }
-    }
-    return string;
-  }
-}
 
 
 
-setTimeout(function(){
-    var base = new Base64();
-    var app_s = base.decode('Tw==') + base.decode('bg==') + base.decode('ZQ==') + base.decode('55S1') + base.decode('56ue') +  '';
-    var app_s2 = "";
+    setTimeout(function () {
+      var base = new Base64();
+      var app_s = base.decode('Tw==') + base.decode('bg==') + base.decode('ZQ==') + base.decode('55S1') + base.decode('56ue') + '';
+      var app_s2 = "";
 
-    // console.log(app_s2);
-    // console.log(app_s);
+      // console.log(app_s2);
+      // console.log(app_s);
 
-    // var app_s2 = base.decode(app_s2);
-    // console.log(app_s2);
-    // app_s2 = window.atob(app_s2);
+      // var app_s2 = base.decode(app_s2);
+      // console.log(app_s2);
+      // app_s2 = window.atob(app_s2);
 
-    document.getElementById("app_name_img").src = textBecomeImg(app_s,25,"#000");
-    // document.getElementById("app_name_img").src = textBecomeImg(app_s,25,"#000");
-
-
-},100);
-
-</script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?7ddceca34e01a13d9d024f3bc2b4b232";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+      document.getElementById("app_name_img").src = textBecomeImg(app_s, 25, "#000");
+      // document.getElementById("app_name_img").src = textBecomeImg(app_s,25,"#000");
 
 
+    }, 100);
 
-</body></html>
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7ddceca34e01a13d9d024f3bc2b4b232";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+</body>
+
+</html>
